@@ -71,7 +71,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@veridtools/feel-parser": "link:../feel-parser",
+    "@veridtools/feel-parser": "^0.2.1",
     "decimal.js": "^10.6.0"
   },
   "devDependencies": {
