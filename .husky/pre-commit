@@ -1,0 +1,4 @@
+npx --no-install lint-staged
+pnpm typecheck
+pnpm docs:build
+pnpm build

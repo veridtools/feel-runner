@@ -1,0 +1,94 @@
+{
+  "name": "@veridtools/feel-runner",
+  "version": "0.0.0",
+  "description": "FEEL expression evaluator and DMN decision runner — zero deps, ≥97% conformance",
+  "author": "Victor Martins Bicudo",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "homepage": "https://github.com/veridtools/feel-runner#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veridtools/feel-runner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/veridtools/feel-runner/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "feel-runner": "./dist/bin/feel-runner.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "dmn",
+    "feel",
+    "feel-expression",
+    "expression-evaluator",
+    "dmn-1.5",
+    "decision-table",
+    "bpmn",
+    "decision",
+    "rule-engine",
+    "veridtools",
+    "omg",
+    "camunda",
+    "kogito",
+    "temporal",
+    "unary-test",
+    "typescript"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "cli": "tsx bin/feel-runner.ts",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "changeset": "changeset",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@veridtools/feel-parser": "link:../feel-parser",
+    "decimal.js": "^10.6.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0",
+    "@changesets/cli": "^2.27.0",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@types/node": "^20.0.0",
+    "@veridtools/dmn-fixtures": "0.3.5",
+    "@vitest/coverage-v8": "^2",
+    "fast-xml-parser": "^5.7.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "tsup": "^8",
+    "tsx": "^4.21.0",
+    "typescript": "^5",
+    "vitepress": "^1.6.4",
+    "vitest": "^2"
+  }
+}
