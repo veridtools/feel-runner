@@ -1,6 +1,10 @@
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { evaluate, unaryTest } from '../src/index.js';
 
-const version = process.env.npm_package_version ?? '0.0.0';
+const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '../package.json');
+const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8'));
 
 const BANNER = `
 ██╗   ██╗███████╗██████╗ ██╗██████╗ ████████╗ ██████╗  ██████╗ ██╗     ███████╗

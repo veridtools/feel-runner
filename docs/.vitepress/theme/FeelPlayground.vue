@@ -116,9 +116,10 @@ const EXAMPLES = [
 
 // ── State ─────────────────────────────────────────────────────────────────────
 
-const expression = ref('(1 + 2) * 3 - 4 / 2');
-const contextStr = ref('');
-const mode = ref<'eval' | 'unary'>('eval');
+const activeExample = ref<string>(EXAMPLES[0].label);
+const expression = ref(EXAMPLES[0].expr);
+const contextStr = ref(EXAMPLES[0].ctx);
+const mode = ref<'eval' | 'unary'>(EXAMPLES[0].mode);
 const result = ref<string | null>(null);
 const error = ref<string | null>(null);
 const ran = ref(false);
@@ -155,6 +156,7 @@ function run() {
 
 // biome-ignore lint/correctness/noUnusedVariables: called from Vue template
 function loadExample(ex: (typeof EXAMPLES)[number]) {
+  activeExample.value = ex.label;
   expression.value = ex.expr;
   contextStr.value = ex.ctx;
   mode.value = ex.mode;
@@ -173,6 +175,7 @@ onMounted(() => run());
         v-for="ex in EXAMPLES"
         :key="ex.label"
         class="example-btn"
+        :class="{ active: activeExample === ex.label }"
         @click="loadExample(ex)"
       >{{ ex.label }}</button>
     </div>
@@ -252,6 +255,13 @@ onMounted(() => run());
 .example-btn:hover {
   background: var(--vp-c-brand-soft);
   border-color: var(--vp-c-brand-1);
+}
+
+.example-btn.active {
+  background: var(--vp-c-brand-soft);
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
 }
 
 .input-group {

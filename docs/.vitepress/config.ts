@@ -4,7 +4,7 @@ const base = '/feel-runner/';
 
 export default defineConfig({
   base,
-  title: 'feel-runner',
+  title: 'Verd',
   titleTemplate: ':title | feel-runner',
   description: 'FEEL expression evaluator for DMN 1.5 — zero dependencies, ≥97% conformance',
   lang: 'en-US',
