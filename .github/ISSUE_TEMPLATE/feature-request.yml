@@ -1,0 +1,44 @@
+name: Feature Request
+description: Request support for a new FEEL construct, builtin function, warning, or API improvement
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request new language coverage or an API improvement.
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Type of request
+      options:
+        - New FEEL construct / syntax
+        - New builtin function
+        - New / improved warning (DX)
+        - API improvement (evaluate, unaryTest, validate, compile, explain)
+        - CLI improvement
+        - Documentation improvement
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What would you like?
+      description: Describe the feature clearly. Include the FEEL construct, function name, or behavior you need.
+      placeholder: |
+        e.g. Emit a INVALID_TYPE warning when a string is used in arithmetic instead of
+        silently returning null — so developers know exactly what went wrong.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example expression (optional)
+      description: A FEEL expression that illustrates the request.
+      render: text
+  - type: textarea
+    id: dmn-spec
+    attributes:
+      label: DMN spec reference (optional)
+      description: Section number from the OMG DMN spec if this is a standard feature.
+      placeholder: e.g. DMN 1.5 §10.3.4.5

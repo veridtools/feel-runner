@@ -1,0 +1,59 @@
+name: Bug Report — Incorrect Evaluation
+description: Report an expression that evaluates to a wrong value, emits a wrong warning, or throws unexpectedly
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to report an evaluation bug.
+        **Wrong value** = expression evaluates but the result is incorrect.
+        **Wrong warning** = a warning is emitted when it shouldn't be (or missing when it should be).
+        **Unexpected throw** = `evaluate()` throws instead of returning a result.
+  - type: dropdown
+    id: bug-type
+    attributes:
+      label: Type of issue
+      options:
+        - Wrong evaluation result
+        - Wrong or missing warning
+        - Unexpected throw / exception
+        - Incorrect builtin function output
+        - Temporal / date arithmetic error
+        - Decimal precision error
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: expression
+    attributes:
+      label: FEEL expression
+      description: The expression that reproduces the issue. Minimal reproduction preferred.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context (if any)
+      description: JSON object passed as the context argument, if relevant.
+      render: json
+      placeholder: '{"price": 10, "qty": 5}'
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: What did `evaluate()` return? (value + warnings)
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What should `evaluate()` have returned?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: e.g. 0.1.0
