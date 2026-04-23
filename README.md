@@ -42,46 +42,48 @@ unaryTest('not([1..10])', { '?': 15 }).value   // true
 
 ## CLI
 
-`feel-runner` ships a standalone CLI. Run without installing:
+### Installed
 
 ```bash
-npx @veridtools/feel-runner "(1 + 2) * 3 - 4 / 2"
-# → 7
-```
-
-Or install globally:
-
-```bash
+# Install globally
 pnpm add -g @veridtools/feel-runner
-# then
-feel-runner "sum([1,2,3,4,5])"
-```
+# or without installing
+npx @veridtools/feel-runner "1 + 2 * 3"
 
-### Examples
-
-```bash
-# Arithmetic
+# Evaluate a FEEL expression
 feel-runner "(1 + 2) * 3 - 4 / 2"
 
 # With context variables
 feel-runner "price * qty" --ctx '{"price":10,"qty":5}'
 
-# Builtin functions
-feel-runner "sum([1,2,3,4,5])"
-
-# Temporal
-feel-runner 'date("2024-01-15").month'
-
-# Unary test — value in range
+# Unary test — check if value is in range
 feel-runner "[18..65]" --unary --input 30
 
-# Unary test — value in list
+# Unary test — check if value is in list
 feel-runner '"A","B","C"' --unary --ctx '{"?":"B"}'
 
-# Warnings are shown in yellow with code
-feel-runner "price * 2"
-# ⚠ [NO_VARIABLE_FOUND] Variable not found: price
-# → null
+feel-runner --help
+```
+
+### Try it locally (from the repo)
+
+```bash
+git clone https://github.com/veridtools/feel-runner
+cd feel-runner
+pnpm install
+
+# Run without building (via tsx)
+npx tsx bin/feel-runner.ts "(1 + 2) * 3 - 4 / 2"
+npx tsx bin/feel-runner.ts "sum([1,2,3,4,5])"
+npx tsx bin/feel-runner.ts "price * qty" --ctx '{"price":10,"qty":5}'
+npx tsx bin/feel-runner.ts 'date("2024-01-15").month'
+npx tsx bin/feel-runner.ts "[18..65]" --unary --input 30
+npx tsx bin/feel-runner.ts '"A","B","C"' --unary --ctx '{"?":"B"}'
+npx tsx bin/feel-runner.ts --help
+
+# Or build first and run directly
+pnpm build
+node dist/bin/feel-runner.js "some x in [1,2,3] satisfies x > 2"
 ```
 
 ### Options
