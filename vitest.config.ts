@@ -1,12 +1,6 @@
-import { resolve } from 'node:path';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      '@veridtools/feel-parser': resolve(__dirname, '../feel-parser/src/index.ts'),
-    },
-  },
   test: {
     globals: true,
     include: ['tests/**/*.test.ts', 'src/**/*.test.ts'],
