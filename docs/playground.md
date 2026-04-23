@@ -10,8 +10,6 @@ Type any FEEL expression and evaluate it in real-time. Use the quick examples to
 
 <FeelPlayground />
 
----
-
 ## Reading the output
 
 | Field | Description |
