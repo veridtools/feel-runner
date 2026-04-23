@@ -1,12 +1,15 @@
 import { defineConfig } from 'vitepress';
 
+const base = '/feel-runner/';
+
 export default defineConfig({
-  title: 'Verid',
+  base,
+  title: 'feel-runner',
   titleTemplate: ':title | feel-runner',
   description: 'FEEL expression evaluator for DMN 1.5 — zero dependencies, ≥97% conformance',
   lang: 'en-US',
   ignoreDeadLinks: true,
-  head: [['link', { rel: 'icon', type: 'image/webp', href: '/verid-logo.webp' }]],
+  head: [['link', { rel: 'icon', type: 'image/webp', href: `${base}verid-logo.webp` }]],
 
   themeConfig: {
     logo: '/verid-logo.webp',
