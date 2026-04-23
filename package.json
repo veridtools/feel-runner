@@ -1,6 +1,6 @@
 {
   "name": "@veridtools/feel-runner",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "FEEL expression evaluator and DMN decision runner — zero deps, ≥97% conformance",
   "author": "Victor Martins Bicudo",
   "license": "MIT",
